@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://caosl4nab00sn"
+path="res://.godot/imported/flavour_text.dialogue-a368f0fd6c6b7e3410ebabf16cfc434f.tres"
+
+[deps]
+
+source_file="res://Dialogue/flavour_text.dialogue"
+dest_files=["res://.godot/imported/flavour_text.dialogue-a368f0fd6c6b7e3410ebabf16cfc434f.tres"]
+
+[params]
+
+defaults=true

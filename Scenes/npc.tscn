@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://b0ubnq6xlqceb"]
+
+[ext_resource type="Texture2D" uid="uid://755r88bqr6ry" path="res://Sprites/walk-Sheet.png" id="1_c4064"]
+[ext_resource type="PackedScene" uid="uid://cl45kl1ilem0g" path="res://Scenes/interactable.tscn" id="2_14754"]
+[ext_resource type="Resource" uid="uid://dpbroht26tf0v" path="res://Dialogue/Test_dialogue.dialogue" id="3_dlua7"]
+[ext_resource type="Texture2D" uid="uid://44io0effeqrp" path="res://Sprites/Base-01.png" id="4_xmkhy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdv2s"]
+atlas = ExtResource("1_c4064")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4uq"]
+atlas = ExtResource("1_c4064")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p4fx"]
+atlas = ExtResource("1_c4064")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy8w7"]
+atlas = ExtResource("1_c4064")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvqmq"]
+atlas = ExtResource("1_c4064")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1cql"]
+atlas = ExtResource("1_c4064")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2loj"]
+atlas = ExtResource("1_c4064")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4u5b"]
+atlas = ExtResource("1_c4064")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opwxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdv2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg4uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p4fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy8w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvqmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1cql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2loj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4u5b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giya7"]
+
+[node name="NPC" type="Node2D"]
+position = Vector2(3, -16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_opwxl")
+autoplay = "default"
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("icon") instance=ExtResource("2_14754")]
+collision_layer = 16
+collision_mask = 16
+dialogue_resource = ExtResource("3_dlua7")
+dialogue_start = "this_is_a_node_title"
+icon = NodePath("Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_giya7")
+
+[node name="Icon" type="Sprite2D" parent="Interactable"]
+position = Vector2(-1, -13)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_xmkhy")
+region_enabled = true
+region_rect = Rect2(34.8084, 209.728, 10.6753, 11.8915)

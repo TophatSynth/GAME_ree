@@ -1,0 +1,5 @@
+~ start
+set GameState.is_dialogue_running = true
+Chest: This is a chest
+set GameState.is_dialogue_running = false
+=> END
